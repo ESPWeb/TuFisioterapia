@@ -14,23 +14,47 @@
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23fabbc5'/%3E%3Ctext x='50' y='75' font-family='Montserrat, sans-serif' font-weight='700' font-size='70' fill='%234f4e4e' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
 
+    <!-- SEO: JSON-LD Schema Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Physiotherapy",
+      "name": "Tu Fisioterapia Paterna",
+      "image": "fisioterapeuta-paterna-lupe.webp",
+      "telephone": "+34644413642",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Carrer de les Eres, 18",
+        "addressLocality": "Paterna",
+        "addressRegion": "Valencia",
+        "postalCode": "46980",
+        "addressCountry": "ES"
+      },
+      "url": "YOUR_WEBSITE_URL_HERE",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Tuesday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "opens": "09:00",
+          "closes": "19:30"
+        }
+      ],
+      "description": "Clínica de fisioterapia y osteopatía en Paterna, Valencia. Ofrecemos tratamientos personalizados, rehabilitación y masajes terapéuticos para mejorar tu salud y bienestar."
+    }
+    </script>
+
     <style>
-        /* --- CORRECTED Color & Font Variables --- */
         :root {
             --primary-color: #4f4e4e;
             --secondary-color: #fabbc5;
-            --hamburger-top-color: #fabbc5;
-            --hero-title-color: #fabbc5;
-            --hero-title2-color: #9e9e9e; 
-            --photo-boarder-color: #fabbc5;
-            --card-color-1: #4E5456;
             --icon-dimound-color: #32B6E3;
-            --contact-heading-color: #fabbc5;
-            --contact-titles-color: #fabbc5;
             --off-white: #E9ECEF; 
             --clean-white: #FFFFFF;
-            
-            --top-city-name-color: #FFFFFF; 
+            --dark-text: #333333; /* Darker text for contrast */
             --font-body: 'Montserrat', sans-serif;
         }
 
@@ -41,15 +65,13 @@
             background-color: var(--clean-white);
             color: var(--primary-color);
             line-height: 1.6;
-            /* REMOVED: padding-bottom for vertical space. We'll handle this in a better way. */
         }
         
         main {
-            /* This margin creates space at the bottom for the fixed banner */
             margin-bottom: 70px;
         }
 
-        /* --- Header & Navigation (Compact) --- */
+        /* --- Header & Navigation --- */
         .header {
             background-color: var(--primary-color);
             padding: 5px 20px;
@@ -61,10 +83,10 @@
         }
         .hamburger-icon .bar { background-color: var(--clean-white); }
         #nav-menu { background-color: var(--primary-color); }
-        #nav-menu a { color: var(--hamburger-top-color); font-weight: bold; text-decoration: none; transition: color 0.3s; }
+        #nav-menu a { color: var(--secondary-color); font-weight: bold; text-decoration: none; transition: color 0.3s; }
         #nav-menu a:hover { color: var(--off-white); }
         
-        /* --- General Section Styling (Compact) --- */
+        /* --- General Section Styling --- */
         .section { padding: 20px; text-align: center; margin-bottom: 0; }
         .bg-gray { background-color: var(--off-white); }
         .bg-brown { background-color: var(--primary-color); }
@@ -88,44 +110,50 @@
 
         /* --- Hero/Title Section --- */
         #titulo {
-            padding-bottom: 15px;
+            padding-bottom: 25px;
             background-color: var(--primary-color);
         }
         .hero-title {
-            font-size: 2.5em;
-            color: var(--hero-title-color);
+            font-size: 4em;
+            color: var(--secondary-color);
             margin: 0;
             font-weight: 700;
-           }
-           .hero-title .highlight {
-             color: #32B6E3;
-           }
-           .hero-title2 {
-             font-size: 2em;
-             color: var(--hero-title2-color);
-             margin: 0;
-             font-weight: 700;
-           }
-           .hero-title3.highlight3 {
-             color: #32B6E3;
-           }
-
+        }
         .hero-subtitle {
-            font-size: 2.5em;
-            color: var(--top-city-name-color);
+            font-size: 2em;
+            color: var(--clean-white);
             opacity: 0.9;
             margin-top: 0;
             margin-bottom: 0;
         }
 
-        /* --- Owner & Team Photos (Compact) --- */
+        /* --- "Pide Cita" Button Style --- */
+        .btn-cita {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+        .btn-cita:hover {
+            background-color: #e6a0ac;
+            color: var(--primary-color);
+        }
+        #titulo .btn-cita {
+            margin-top: 20px;
+        }
+
+        /* --- Owner & Team Photos --- */
         #doctora { padding-top: 15px; }
         .owner-photo, .team-photo {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--photo-boarder-color);
+            border: 4px solid var(--secondary-color);
             margin-bottom: 4px;
         }
         .owner-name, .team-name {
@@ -139,110 +167,78 @@
         
         /* --- Lists with Card Style --- */
         .info-list {
-            font-size: 1.3em; 
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            max-width: 650px;
-            display: flex;
-            flex-direction: column;
-            align-items: stretch;
-            gap: 15px;
+            list-style: none; padding: 0; margin: 0 auto;
+            max-width: 800px; display: flex; flex-direction: row;
+            flex-wrap: wrap; justify-content: center; gap: 15px;
         }
         .info-list li {
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-            padding: 20px;
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
+            border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            padding: 20px; display: flex; align-items: flex-start; text-align: left;
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            flex-basis: calc(50% - 58px);
         }
         .info-list li:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
-        .info-list h3 { color: var(--primary-color); margin: 0 0 4px 0; font-size: 1em; }
-        .info-list p { font-size: 0.9em; margin: 0; }
+        .info-list h3 { color: var(--dark-text); margin: 0 0 4px 0; font-size: 1em; }
+        .info-list p { font-size: 1em; margin: 0; }
         
         /* --- Dark Background Section Styles --- */
-        .bg-dark {
-            background-color: var(--secondary-color);
+        .bg-dark { background-color: var(--secondary-color); }
+        .bg-dark .section-title { color: var(--primary-color); }
+        .bg-dark .info-list li { 
+            background-color: var(--clean-white); 
+            color: var(--dark-text);
+            font-size: 1.05em;
         }
-        .bg-dark .section-title {
-            color: var(--clean-white);
-        }
-        /* UPDATED: Card styles for dark sections */
-        .bg-dark .info-list li {
-            background-color: var(--clean-white);
-        }
-        .bg-dark .info-list li,
-        .bg-dark .info-list h3,
-        .bg-dark .info-list p {
-            color: var(--primary-color);
-        }
-        .bg-dark .icon-diamond {
-            color: var(--secondary-color);
-        }
+        .bg-dark .info-list h3, .bg-dark .info-list p { color: var(--dark-text); }
+        .bg-dark .icon-diamond { color: var(--secondary-color); }
         
-        #elegirnos.bg-brown {
-            color: var(--clean-white);
-        }
-        #elegirnos.bg-brown .section-title {
-              color: var(--clean-white);
-        }
+        #elegirnos.bg-brown { color: var(--clean-white); }
+        #elegirnos.bg-brown .section-title { color: var(--clean-white); }
         #elegirnos.bg-brown .info-list li {
             background-color: var(--primary-color);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             color: var(--clean-white);
+            flex-basis: 100%;
+            font-size: 1.1em;
         }
-        #elegirnos.bg-brown .info-list h3 {
-              color: var(--clean-white);
-        }
-        #elegirnos.bg-brown .icon-diamond {
-            color: var(--clean-white);
-        }
+        #elegirnos.bg-brown .info-list h3 { color: var(--clean-white); }
+        #elegirnos.bg-brown .icon-diamond { color: var(--clean-white); }
 
         /* --- Contact Section --- */
-        #contacto {
-            background-color: var(--primary-color);
-            color: var(--clean-white);
+        #contacto { background-color: var(--primary-color); color: var(--clean-white); }
+        #contacto .section-title { color: var(--secondary-color); }
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 30px; max-width: 900px; margin: 0 auto;
+            text-align: left; align-items: center;
         }
-        #contacto .section-title { color: var(--contact-heading-color); }
-        .contact-info-wrapper { text-align: center; }
-        .contact-info {
-            list-style: none; padding: 0; font-size: 1.2em;
-            display: inline-block; margin: 0 auto; text-align: left;
-        }
+        .contact-info { list-style: none; padding: 0; font-size: 1.2em; }
         .contact-info li { margin-bottom: 8px; }
-        .contact-info strong { color: var(--contact-titles-color); }
+        .contact-info strong { color: var(--secondary-color); }
         .contact-info a { color: var(--clean-white); text-decoration: none; }
-        .contact-info li.center-li { /* Target list items with the 'center-li' class */
-            text-align: center; /* Override the left alignment for these specific items */
-        }
+        /* CORRECTED RULE for button font color */
+        .contact-info a.btn-cita { color: var(--primary-color); }
+        .contact-info .center-li { text-align: center; }
+        .map-container iframe { width: 100%; height: 300px; border:0; border-radius: 8px; }
 
         /* --- Cookie Banner --- */
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--off-white);
-            padding: 15px;
-            text-align: center;
-            border-top: 1px solid #ccc;
-            z-index: 1000;
-        }
-        .cookie-banner p {
-            margin: 0;
-            color: var(--primary-color);
-        }
+        .cookie-banner { position: fixed; bottom: 0; left: 0; width: 100%; background-color: var(--off-white); padding: 15px; text-align: center; border-top: 1px solid #ccc; z-index: 1000; }
+        .cookie-banner p { margin: 0; color: var(--primary-color); }
 
         /* --- Helper/Responsive Styles --- */
         .hamburger-icon { cursor: pointer; display: inline-block; padding: 10px; }
         .hamburger-icon .bar { display: block; width: 25px; height: 3px; margin: 5px auto; transition: 0.4s; }
         #nav-menu { display: none; list-style: none; padding: 0; margin: 5px 0 0 0; }
         #nav-menu li { padding: 8px 0; }
+        
+        @media (max-width: 768px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .info-list li { flex-basis: 100%; }
+        }
+
         @media (min-width: 768px) {
             .hamburger-icon { display: none; }
             #nav-menu { display: flex; justify-content: center; gap: 30px; }
@@ -267,26 +263,27 @@
 
     <main>
         <section id="titulo" class="section">
-            <h1 class="hero-title" style="font-size: 4em;">Tu Fisioterapia / Paterna</h1>
-            <h2 class="hero-subtitle"style="font-size: 2em;">Fisioterapia, Osteopatía y Rehabilitación</h2>
+            <h1 class="hero-title">Tu Fisioterapia / Paterna</h1>
+            <h2 class="hero-subtitle">Fisioterapia, Osteopatía y Rehabilitación</h2>
+            <a href="https://wa.me/message/NKWKJD3FOEQKP1" class="btn-cita" target="_blank">Pide Cita Aquí</a>
         </section>     
 
-        
         <section id="doctora" class="section">
-            <img src="fisioterapeuta-paterna-lupe.webp" alt="Foto de Lupe" class="owner-photo" width="150" height="150">
+            <img src="fisioterapeuta-paterna-lupe.webp" alt="Foto de Lupe, fisioterapeuta principal en Tu Fisioterapia Paterna" class="owner-photo" width="150" height="150">
             <p class="owner-name" style="font-size: 30px;">Lupe, Tu fisioterapeuta en Paterna</p>
         </section>
 
         <section id="servicios" class="section bg-dark">
-            <h2 class="section-title"style="color: #4f4e4e;">Nuestros Servicios</h2>
+            <h2 class="section-title" style="color: #4f4e4e;">Nuestros Servicios</h2>
             <ul class="info-list">
-                <li><span class="icon-diamond">◆</span> <div>Fisoterapia General</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Fisioterapia General</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Osteopatía</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Rehabilitación</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Lesiones Deportivas</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Pilates</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Masaje Terapéutico</div></li>
                 <li><span class="icon-diamond">◆</span> <div>Tratamientos Personalizados</div></li>
+                <li><span class="icon-diamond">◆</span> <div>Readaptación de Lesiones</div></li>
             </ul>
         </section>
         
@@ -300,45 +297,46 @@
         </section>
 
         <section id="faq" class="section bg-dark">
-            <h2 class="section-title"style="color: #4f4e4e;">Preguntas Frecuentes</h2>
+            <h2 class="section-title" style="color: #4f4e4e;">Preguntas Frecuentes</h2>
             <ul class="info-list">
                 <li><span class="icon-diamond">◆</span> <div><h3>¿Qué es la fisioterapia y cómo puede ayudarme?</h3><p>La fisioterapia es una profesión de la salud enfocada en ayudar a las personas a restaurar, mantener y maximizar su fuerza física, función, movimiento y bienestar general.</p></div></li>
-                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué es Osteopatía?</h3><p>La osteopatía es una disciplina terapéutica manual que se enfoca en el diagnóstico, tratamiento y prevención de trastornos musculoesqueléticos y otros problemas de salud, buscando restaurar el equilibrio y la funcionalidad del cuerpo. Los osteópatas utilizan técnicas manuales para identificar y tratar problemas como dolores de espalda, cuello, problemas articulares, lesiones deportivas, y más, considerando al cuerpo como una unidad interconectada.  </p></div></li>
-
-                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué es Masaje Terapéutico?</h3><p>El masaje terapéutico es una técnica de manipulación manual de los tejidos blandos del cuerpo que se utiliza para tratar diversas dolencias físicas y mentales, promover la relajación, reducir el dolor y mejorar la función muscular. Se considera un enfoque integral para la salud y el bienestar, y puede ser aplicado para una amplia gama de condiciones. </p></div></li>
-
-                <li><span class="icon-diamond">◆</span> <div><h3>¿Necesito una recomendación médica para reservar una cita?</h3><p>Generalmente no necesita una recomendación médica para consultar con un fisioterapeuta privado. Puede reservar una cita directamente con nuestra clínica. Sin embargo, si planea solicitar un reembolso a través de su seguro médico privado, algunas pólizas podrían requerir una recomendación médica. Le recomendamos consultar directamente con su aseguradora si esto le aplica.</p></div></li>
-                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué debo esperar durante mi primera sesión de fisioterapia?</h3><p>Su primera sesión incluirá una evaluación integral. Su fisioterapeuta hablará sobre su historial médico, síntomas actuales, estilo de vida y objetivos. Posteriormente, realizará un examen físico exhaustivo para identificar la causa de su problema. Con base en esto, le explicará su diagnóstico, le explicará su plan de tratamiento personalizado y comenzará los tratamientos iniciales. También recibirá consejos sobre cómo manejar su afección en casa. Por favor, use ropa cómoda que le permita moverse.</p></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué es Osteopatía?</h3><p>La osteopatía es una disciplina terapéutica manual que se enfoca en el diagnóstico y tratamiento de trastornos musculoesqueléticos para restaurar el equilibrio del cuerpo.</p></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>¿Qué es Masaje Terapéutico?</h3><p>El masaje terapéutico es una técnica manual utilizada para tratar dolencias, promover la relajación, reducir el dolor y mejorar la función muscular.</p></div></li>
+                <li><span class="icon-diamond">◆</span> <div><h3>¿Necesito una recomendación médica?</h3><p>Generalmente no necesita una recomendación médica para una cita privada, aunque algunas aseguradoras podrían requerirla. Le recomendamos consultar con su seguro.</p></div></li>
             </ul>
         </section>
 
         <section id="equipo" class="section bg-gray">
             <h2 class="section-title" >Nuestro Equipo</h2>
             <div class="team-container">
-                <!-- The Team Section Photo Links are here. -->
-                <div class="team-member"><img src="TeamMember1.webp" alt="Miembro del equipo" class="team-photo" width="150" height="150"><p class="team-name">Martín</p></div>
-                <div class="team-member"><img src="TeamMember2.webp" alt="Miembro del equipo" class="team-photo" width="150" height="150"><p class="team-name">Laura</p></div>
-                <div class="team-member"><img src="TeamMember3.webp" alt="Miembro del equipo" class="team-photo" width="150" height="150"><p class="team-name">Hugo</p></div>
+                <div class="team-member"><img src="TeamMember1.webp" alt="Martín, miembro del equipo de fisioterapia en Paterna" class="team-photo" width="150" height="150"><p class="team-name">Martín</p></div>
+                <div class="team-member"><img src="TeamMember2.webp" alt="Laura, miembro del equipo de fisioterapia en Paterna" class="team-photo" width="150" height="150"><p class="team-name">Laura</p></div>
+                <div class="team-member"><img src="TeamMember3.webp" alt="Hugo, miembro del equipo de fisioterapia en Paterna" class="team-photo" width="150" height="150"><p class="team-name">Hugo</p></div>
             </div>
         </section>
 
         <section id="contacto" class="section">
-            <h2 class="section-title">Contacto</h2>
-            <div class="contact-info-wrapper">
+            <h2 class="section-title">Contacto y Ubicación</h2>
+            <div class="contact-grid">
                 <ul class="contact-info">
                     <li><strong>Clínica:</strong> Tu Fisioterapia</li>
                     <li><strong>Dirección:</strong> Carrer de les Eres, 18, 46980 Paterna, Valencia</li>
                     <li><strong>Teléfono:</strong> <a href="tel:644413642">644 41 36 42</a></li>
-                    <li><strong>Email:</strong> <a href="mailto:clinica@gmail.com">clinica@gmail.com</a></li> <!-- Placeholder Email -->
-                    <li><strong>Instagram:</strong> <a href="https://www.instagram.com/tufisioterapiapaterna/" target="_blank">@tufisioterapiapaterna1738</a></li>
-                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@tufisioterapiapaterna1738/" target="_blank">www.youtube.com/@tufisioterapiapaterna1738</a></li>
+                    <li><strong>Email:</strong> <a href="mailto:consultadefisio@gmail.com">consultadefisio@gmail.com</a></li>
+                    <li><strong>Facebook:</strong> <a href="https://www.facebook.com/tufisioterapiapaterna" target="_blank">@tufisioterapiapaterna</a></li>
+                    <li><strong>Instagram:</strong> <a href="https://www.instagram.com/tufisioterapiapaterna/" target="_blank">@tufisioterapiapaterna</a></li>
+                    <li><strong>TikTok:</strong> <a href="http://www.tiktok.com/@tufisioterapiapaterna" target="_blank">@tufisioterapiapaterna</a></li>
+                    <li><strong>YouTube:</strong> <a href="https://www.youtube.com/@tufisioterapiapaterna1738/" target="_blank">Canal de YouTube</a></li>
                     <li class="center-li"><strong>Horario:</strong></li> 
                     <li class="center-li">Martes - Jueves: 09:00 - 13:30 y 15:00 - 19:30</li>
                     <li class="center-li">Sábados - Domingos - Lunes: Cerrado</li>
+                    <li class="center-li" style="margin-top:15px;"><a href="https://wa.me/message/NKWKJD3FOEQKP1" class="btn-cita" target="_blank">Pide Cita Aquí</a></li>
                 </ul>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3078.297491823707!2d-0.4431526846308731!3d39.50742597948108!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd604555b766286d%3A0x6b74e8a8b139949!2sCarrer%20de%20les%20Eres%2C%2018%2C%2046980%20Paterna%2C%20Valencia%2C%20Spain!5e0!3m2!1sen!2sus!4v1671234567890!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
         </section>
-
     </main>
     
     <footer>
